@@ -13,4 +13,9 @@ public class TestController {
     public ResponseMsg test(@Param("hello") String hello){
         return new ResponseMsg("请求成功，你输入的信息是："+hello,200);
     }
+    
+    @RequestMapping("/query")
+    public ResponseMsg query(@Param("name") String name){
+        return new ResponseMsg("请求成功，你输入的信息是："+name,200);
+    }
 }
