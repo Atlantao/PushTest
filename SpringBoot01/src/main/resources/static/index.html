@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试页面</title>
+    <script src="./js/jquery-3.1.0.min.js"></script>
+</head>
+<body>
+    <input type="text" id="txt" />
+    <button id="c">测试</button>
+<script>
+    $(function(){
+        $("#c").click(function(){
+            // 发送求情
+            $.ajax({
+                url: "/test/hello",
+                type: "post",
+                data: {
+                    "hello": $("#txt").val()
+                },
+                success: function(res){
+                    console.log(res)
+                }
+            })
+        })
+    })
+</script>
+</body>
+</html>

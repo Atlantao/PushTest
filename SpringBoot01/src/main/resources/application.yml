@@ -1,0 +1,52 @@
+
+# Tomcat
+server:
+    tomcat:
+        uri-encoding: UTF-8
+        max-threads: 1000
+        min-spare-threads: 30
+    connection-timeout: 5000ms
+    servlet:
+      context-path: /
+    port: 8080
+
+spring:
+    # 环境 dev|test|prod
+    profiles:
+        active: dev
+    # jackson时间格式化
+    jackson:
+        time-zone: GMT+8
+        date-format: yyyy-MM-dd HH:mm:ss
+
+spring:
+    datasource:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driverClassName: com.mysql.jdbc.Driver
+#        url: jdbc:mysql://192.168.0.65:3306/zcgl?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8
+#        username: root
+#        password: root
+        druid:
+            url: jdbc:mysql://localhost:3306/security-monitor-330281?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&&autoReconnect=true&failOverReadOnly=false
+            username: root
+            password: 123
+            initial-size: 10
+            max-active: 100
+            min-idle: 10
+            max-wait: 60000
+            pool-prepared-statements: true
+            max-pool-prepared-statement-per-connection-size: 20
+            time-between-eviction-runs-millis: 60000
+            min-evictable-idle-time-millis: 300000
+            validation-query: SELECT 1 FROM DUAL
+            test-while-idle: true
+            test-on-borrow: false
+            test-on-return: false
+            stat-view-servlet:
+                enabled: true
+                url-pattern: /druid/*
+                #login-username: admin
+                #login-password: admin
+spring:
+  jmx:
+    enabled: false
